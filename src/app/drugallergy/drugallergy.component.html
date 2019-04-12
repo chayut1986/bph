@@ -1,3 +1,30 @@
-<p>
-  drugallergy works!
-</p>
+<section class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ลำดับที่</th>
+            <th scope="col">CID</th>
+            <th scope="col">HN</th>
+            <th scope="col">ชื่อ-สกุล</th>
+            <th scope="col">ที่อยู่</th>
+            <th scope="col">ยาที่แพ้</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let d of drugAllergy ; let id = index">
+            <th scope="row">{{id+1}}</th>
+            <td>{{d.cid}}</td>
+            <td>{{d.hn}}</td>
+            <td>{{d.fullname}}</td>
+            <td>{{d.addrpart}} {{d.address}}</td>
+            <td>{{d.druggroup}}</td>
+          </tr>
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

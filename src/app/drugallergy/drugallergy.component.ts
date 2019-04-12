@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DrugAllergyService } from '../api/drugallergy.service';
+import { DrugAllergy } from '../models/drugallergy.model';
+
 
 @Component({
   selector: 'app-drugallergy',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DrugallergyComponent implements OnInit {
 
-  constructor() { }
+  drugAllergy: any = [];
 
+  constructor(private productAllergyService: DrugAllergyService) { }
   ngOnInit() {
+
+    this.productAllergyService.getDrugAllergy().subscribe(
+      (drugAllergy) => {
+        console.log(drugAllergy);
+        var rs: any = drugAllergy;
+        this.drugAllergy = rs.result;
+      }
+
+    );
   }
 
 }
